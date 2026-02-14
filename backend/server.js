@@ -5,7 +5,7 @@ const computeMetrics = require("./metrics");
 const cors = require("cors");
 
 const app = express();
-let frontendURL = process.env.FRONTEND_URL || "http://localhost:3000";
+let frontendURL = process.env.FRONTEND_URL;
 app.use(cors({
   origin: frontendURL,
   methods: ['GET','POST','PUT','DELETE'],
