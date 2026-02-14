@@ -14,6 +14,7 @@ function App() {
     );
   }, []);
 
+  // Show loading state until data is fetched
   if (!data) return <h2>Loading...</h2>;
 
   return (
