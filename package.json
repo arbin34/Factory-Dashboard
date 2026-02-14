@@ -1,0 +1,19 @@
+{
+  "name": "factory-dashboard-full",
+  "version": "1.0.0",
+  "description": "A full-stack web application for monitoring AI-generated productivity events from CCTV systems in a manufacturing facility. The application ingests events, stores them in a database, computes real-time metrics, and displays them in an interactive dashboard.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "cd backend && npm install && node server.js",
+    "frontend": "cd frontend && npm install && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Backend API Server
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: factory-backend
+    environment:
+      PORT: 5000
+      NODE_ENV: production
+    ports:
+      - "5000:5000"
+    networks:
+      - factory-network
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: npm start
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: factory-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - factory-network
+    environment:
+      - REACT_APP_API_BASE=http://backend:5000/api
+
+networks:
+  factory-network:
+    driver: bridge
